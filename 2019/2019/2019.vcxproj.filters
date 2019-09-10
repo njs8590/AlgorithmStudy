@@ -21,15 +21,6 @@
     <ClCompile Include="9243.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="hash1.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="hash2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="hash3.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="src1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -114,9 +105,6 @@
     <ClCompile Include="test1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="codeforce1.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="swexp1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -124,6 +112,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="calc.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ss17143.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="kk15953.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
