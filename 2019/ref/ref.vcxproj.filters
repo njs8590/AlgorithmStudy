@@ -21,5 +21,11 @@
     <ClCompile Include="hash+linkedLIst.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="strcpy+strcmp.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="practice.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
