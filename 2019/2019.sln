@@ -13,6 +13,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "programmers", "programmers\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fail", "fail", "{CB86F99C-7F5F-40BC-9AF7-BAF9647CA7E3}"
 	ProjectSection(SolutionItems) = preProject
+		2019\1003.cpp = 2019\1003.cpp
 		2019\1920.cpp = 2019\1920.cpp
 		2019\kk15954.cpp = 2019\kk15954.cpp
 		2019\ss17142.cpp = 2019\ss17142.cpp

@@ -12,11 +12,13 @@
 
 using namespace std;
 
-//typedf
+//typedef
 
-//func
+//func pre-defined
 
 //global var
+
+//func defined
 
 int main()
 {
