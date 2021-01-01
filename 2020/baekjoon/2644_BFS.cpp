@@ -37,6 +37,7 @@ int main(void)
 	// input
 	cin >> N >> p1 >> target >> M;
 
+	// assign
 	childList.assign(N+1, vector<int>());
 	parentList.assign(N+1, vector<int>());
 
