@@ -11,13 +11,16 @@ public class BestAlbum {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] genres = {"a","b","c","d","a","d","d","d","a","a","c","c"};
-		int[] plays = {100,300,400,150,100,300,200,600,700,110,900,9000};
+//		String[] genres = {"a","b","c","d","a","d","d","d","a","a","c","c"};
+//		int[] plays = {100,300,400,150,100,300,200,600,700,110,900,9000};
+		
+		String[] genres = {"classic", "pop", "classic", "classic", "pop"};
+		int[] plays = {500, 600, 150, 800, 2500};
 
 		
 		int[] answer = solution(genres, plays);
-		for(int i=0;i<4;i++) {
-			System.out.print(answer[i]+" ");
+		for(int i:answer) {
+			System.out.print(i+" ");
 		}
 		
 		
@@ -52,63 +55,63 @@ public class BestAlbum {
         		Music music = new Music(i,plays[i]);
         		tempArr.add(music);
         		listPerGenre.put(genre,tempArr);
-        		
         	}
         }
         
-        // 가장 많이 재생된 장르탐색
+        //장르별 플레이횟수 정렬
+        ArrayList<Music> playPerGenreArrayList = new ArrayList<>();
+        
         Iterator<String> it = playPerGenre.keySet().iterator();
-        String top1 = "";
-        String top2 = "";
-        int top1_cnt = 0;
-        int top2_cnt = 0;
         while(it.hasNext()) {
-        	String key = it.next();
-        	int value = playPerGenre.get(key);
+        	String genre = it.next();
+        	int play = playPerGenre.get(genre);
         	
-        	if(top1_cnt < value) {
-        		top1_cnt = value;
-        		top1 = key;
-        	}
-        	else if(top2_cnt < value) {
-        		top2_cnt = value;
-        		top2 = key;
+        	Music music = new Music(play, genre);
+        	playPerGenreArrayList.add(music);
+        }
+        Collections.sort(playPerGenreArrayList, new Music());
+        
+        
+        // 플레이수 많은 장르부터 루프
+        ArrayList<Integer> answerArrayList = new ArrayList<>();
+        
+        for(int i=0;i<playPerGenreArrayList.size();i++) {
+        	String genre = playPerGenreArrayList.get(i).genre;
+        	
+        	// 해당 장르의 플레이리스트
+        	ArrayList<Music> tempArr = listPerGenre.get(genre);
+        	// play순서대로 정렬
+        	Collections.sort(tempArr, new Music());
+        	//answer 에 입력
+        	for(int j=0;j<tempArr.size();j++) {
+        		answerArrayList.add(tempArr.get(j).id);
+        		if(j==1) break; // 최대 두개까지만
         	}
         }
         
-        // top 장르별 리스트 소팅
-        ArrayList<Integer> temparr = new ArrayList<>();
+//        for(int i=0;i<answerArrayList.size();i++) {
+//        	System.out.print(answerArrayList.get(i)+" ");
+//        }
         
-        if(listPerGenre.containsKey(top1)) {
-        	Collections.sort(listPerGenre.get(top1), new Music());
-
-        	for(int i=0;i<listPerGenre.get(top1).size();i++) {
-        		if(i==2) break;
-        		temparr.add(listPerGenre.get(top1).get(i).id);
-        	}
+        answer = new int[answerArrayList.size()];
+        for(int i=0;i<answerArrayList.size();i++) {
+        	answer[i] = answerArrayList.get(i);
         }
-        	
-        if(listPerGenre.containsKey(top2)) {
-        	Collections.sort(listPerGenre.get(top2), new Music());
-        	
-        	for(int i=0;i<listPerGenre.get(top2).size();i++) {
-        		if(i==2) break;
-        		temparr.add(listPerGenre.get(top2).get(i).id);
-        	}
-        }
-        	
-        answer = new int[temparr.size()];
-        for(int i=0;i<temparr.size();i++) {
-        	answer[i] = temparr.get(i);
-        }
+        
         
         
         return answer;
     }
     
     public static class Music implements Comparator<Music>{
+    	String genre;
     	int id;
     	int play;
+    	
+    	Music(int play, String genre){
+    		this.play =play;
+    		this.genre = genre;
+    	}
     	
     	Music(int id, int play){
     		this.id = id;
